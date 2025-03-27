@@ -7,9 +7,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             background-color: #1a1a1a;
-            color: #fff;
+            color: white;
+            text-align: center;
+        }
+        .banner {
+            width: 100%;
+            max-width: 1920px;
         }
         .container {
             padding: 20px;
@@ -24,6 +28,25 @@
             border-radius: 5px;
             margin-top: 20px;
         }
+        .pet-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pet-image {
+            width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .social-link {
+            margin-top: 20px;
+            display: block;
+            color: #ffcc00;
+            text-decoration: none;
+            font-size: 18px;
+        }
     </style>
 </head>
 <body>
@@ -31,6 +54,14 @@
         <h1>Welcome to Cryptonized Pets</h1>
         <p>Your beloved pets have been zapped into the blockchain! Now, it's time to bring them back home.</p>
         <button class="btn">Rescue Your Pet</button>
+        <a href="#" class="social-link">Follow us on Twitter</a>
+        <a href="#" class="social-link">Buy on Toshi Mart</a>
+    </div>
+    <img src="banner.png" alt="Breaking News Banner" class="banner">
+    <div class="pet-container">
+        <img src="puppy.png" alt="Cryptonized Puppy" class="pet-image">
+        <img src="kitten.png" alt="Cryptonized Kitten" class="pet-image">
+        <img src="bird.png" alt="Cryptonized Bird" class="pet-image">
     </div>
 </body>
 </html>
