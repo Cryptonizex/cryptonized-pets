@@ -6,26 +6,29 @@
     <title>Cryptonized Pets</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: white;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
         .banner {
             width: 100%;
             max-width: 1920px;
+            border-bottom: 5px solid #ffcc00;
         }
         .container {
             padding: 20px;
         }
         .btn {
             background-color: #ffcc00;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
             color: #000;
             font-weight: bold;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 10px;
             margin-top: 20px;
         }
         .dropdown {
@@ -35,105 +38,84 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #222;
-            padding: 10px;
-            border-radius: 5px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             resize: both;
             overflow: auto;
+        }
+        .pet-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .pet-container img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .pet-container img:hover {
+            transform: scale(1.1);
         }
         .bonding-curve {
             position: fixed;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%;
-            height: 50px;
+            width: 90%;
+            height: 60px;
             background: blue;
-            border-radius: 25px;
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: left;
             padding: 5px;
-            position: relative;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         }
         .bonding-progress {
             width: 4%;
             height: 100%;
             background: lightblue;
-            border-radius: 25px;
+            border-radius: 30px;
         }
         .bonding-text {
             position: absolute;
             color: white;
-            right: 10px;
-        }
-        .fan-art-gallery {
-            display: flex;
-            overflow-x: auto;
-            white-space: nowrap;
-            animation: scrollGallery 10s linear infinite;
-        }
-        @keyframes scrollGallery {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
-        .fan-art-gallery img {
-            width: 200px;
-            margin: 5px;
-        }
-        .pet-container img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+            right: 15px;
+            font-weight: bold;
         }
         .mini-game {
-            background: #222;
+            background: #fff;
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
-        }
-        .battle-effects {
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            display: none;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
+    <img src="Image/cce55bc2-0c7d-4288-8e5a-9acc6c3c77b4.webp" alt="Breaking News Banner" class="banner">
+    <div class="container">
+        <h1>Welcome to Cryptonized Pets</h1>
+        <p>Your beloved pets have been zapped into the blockchain! Now, it's time to bring them back home.</p>
+        <button class="btn" onclick="window.location.href='https://toshiMart.xyz'">Save Your Pets Now</button>
+    </div>
     <div class="dropdown">
         <button class="btn" onclick="toggleDropdown()">Uniswap</button>
         <div class="dropdown-content" id="uniswapDropdown">
             <iframe src="https://app.uniswap.org/#/swap" width="300" height="300"></iframe>
         </div>
     </div>
-    <div class="container">
-        <h1>Welcome to Cryptonized Pets</h1>
-        <p>Your beloved pets have been zapped into the blockchain! Now, it's time to bring them back home.</p>
-        <button class="btn" onclick="window.location.href='https://toshiMart.xyz'">Save Your Pets Now</button>
-    </div>
-    <img src="Image/cce55bc2-0c7d-4288-8e5a-9acc6c3c77b4.webp" alt="Breaking News Banner" class="banner">
     <div class="pet-container">
         <h2>Select Your Pet</h2>
         <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" class="pet-image" onclick="selectPet('pet1')">
         <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" class="pet-image" onclick="selectPet('pet2')">
         <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" class="pet-image" onclick="selectPet('pet3')">
-    </div>
-    <div class="fan-art-gallery">
-        <img src="Image/fanart1.webp">
-        <img src="Image/fanart2.webp">
-        <img src="Image/fanart3.webp">
-        <img src="Image/fanart4.webp">
-        <img src="Image/fanart5.webp">
-        <img src="Image/fanart6.webp">
-        <img src="Image/fanart7.webp">
-        <img src="Image/fanart8.webp">
-        <img src="Image/fanart9.webp">
-        <img src="Image/fanart10.webp">
-    </div>
-    <div class="social-links">
-        <a href="https://discord.com/">Join us on Discord</a>
-        <a href="https://opensea.io/">View our NFTs on OpenSea</a>
     </div>
     <div class="bonding-curve">
         <div class="bonding-progress"></div>
@@ -153,12 +135,6 @@
         function startBattle() {
             let battleField = document.getElementById("battle-field");
             battleField.innerHTML = "<p>Battle started! Your pet is fighting!</p>";
-            let attackEffect = document.createElement("div");
-            attackEffect.className = "battle-effects";
-            attackEffect.style.background = "url('Image/effect.webp') no-repeat center center";
-            attackEffect.style.display = "block";
-            battleField.appendChild(attackEffect);
-            setTimeout(() => attackEffect.style.display = "none", 1000);
         }
     </script>
 </body>
