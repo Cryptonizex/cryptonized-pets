@@ -55,8 +55,8 @@
             flex-wrap: wrap;
         }
         .pet-container img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s;
@@ -67,8 +67,8 @@
         .bonding-curve {
             position: relative;
             margin: 20px auto;
-            width: 40%;
-            height: 20px;
+            width: 60%;
+            height: 15px;
             background: blue;
             border-radius: 30px;
             display: flex;
@@ -76,6 +76,8 @@
             justify-content: left;
             padding: 5px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+            font-weight: bold;
         }
         .bonding-progress {
             width: 4%;
@@ -114,6 +116,7 @@
     </div>
     <div class="bonding-curve">
         <div class="bonding-progress"></div>
+        <span>4%</span>
     </div>
     <div class="pet-container">
         <h2>Select Your Pet NFT</h2>
@@ -132,6 +135,13 @@
             <p>Phase 4: Community Growth & Marketing</p>
         </div>
     </div>
+    <div class="container">
+        <h2>Join Our Community</h2>
+        <a href="https://discord.com" target="_blank">Discord</a> | 
+        <a href="https://t.me" target="_blank">Telegram</a> | 
+        <a href="https://twitter.com" target="_blank">Twitter</a> | 
+        <a href="https://opensea.io" target="_blank">OpenSea</a>
+    </div>
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("uniswapDropdown");
@@ -141,20 +151,6 @@
             var roadmap = document.getElementById("roadmapDetails");
             roadmap.style.display = roadmap.style.display === "block" ? "none" : "block";
         }
-        function updateCountdown() {
-            var countdownElement = document.getElementById("countdown");
-            var targetDate = new Date();
-            targetDate.setDate(targetDate.getDate() + 30);
-            setInterval(() => {
-                var now = new Date();
-                var timeLeft = targetDate - now;
-                var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m`;
-            }, 1000);
-        }
-        updateCountdown();
     </script>
 </body>
 </html>
