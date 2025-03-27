@@ -107,6 +107,34 @@
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
+        .fan-art-section {
+            margin-top: 40px;
+        }
+        .fan-art-container {
+            width: 100%;
+            overflow: hidden;
+        }
+        .fan-art-slider {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            animation: slide 20s linear infinite;
+        }
+        .fan-art-slider img {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        @keyframes slide {
+            0% {
+                transform: translateX(0%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 <body>
@@ -162,7 +190,62 @@
         </div>
     </div>
 
-    <div class="container">
+   <!-- Fan Art Section -->
+<div class="fan-art-section">
+    <h2>Fan Art Gallery</h2>
+    <div class="fan-art-container">
+        <div class="fan-art-slider">
+            <img src="Image/00a54aaa-306f-442e-8628-98c5ad6e0b2e.webp" alt="Fan Art 1">
+            <img src="Image/3e90b068-5452-4e84-85e8-0b77fe72a062.webp" alt="Fan Art 2">
+            <img src="Image/2a00ab0c-9a4f-4a5c-99ad-a8347a63f586.webp" alt="Fan Art 3">
+            <img src="Image/4fcb76a1-865d-4385-80c2-126d8d158f0d.webp" alt="Fan Art 4">
+            <img src="Image/1fc5b5e9-7a4a-445f-90b5-f4c567521b9b.webp" alt="Fan Art 5">
+            <img src="Image/6f6482a5-9cbf-4a2a-9ef4-3ab7e91d9dc4.webp" alt="Fan Art 6">
+            <img src="Image/8d1e02a6-7e95-485f-84fa-29d6fe8a3c0e.webp" alt="Fan Art 7">
+            <img src="Image/7e4d8f47-3676-4f2f-b25e-5587067b3444.webp" alt="Fan Art 8">
+        </div>
+    </div>
+</div>
+
+<style>
+    .fan-art-section {
+        margin-top: 50px;
+        text-align: center;
+    }
+
+    .fan-art-container {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .fan-art-slider {
+        display: flex;
+        animation: scrollSlider 20s linear infinite;
+    }
+
+    .fan-art-slider img {
+        width: 150px;
+        height: 150px;
+        margin: 0 10px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .fan-art-slider img:hover {
+        transform: scale(1.1);
+    }
+
+    @keyframes scrollSlider {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+<div class="container">
         <h2>Join Our Community</h2>
         <a href="https://discord.com" target="_blank">Discord</a> | 
         <a href="https://t.me" target="_blank">Telegram</a> | 
