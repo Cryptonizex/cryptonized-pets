@@ -31,7 +31,7 @@
         .dropdown {
             position: absolute;
             top: 10px;
-            left: 50%;
+            right: 50px;
             transform: translateX(-50%);
         }
         .dropdown-content {
@@ -53,6 +53,8 @@
             border-radius: 10px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            padding: 5px;
         }
         .bonding-base {
             width: 30px;
@@ -61,6 +63,21 @@
             border-radius: 50%;
             position: absolute;
             left: 4%;
+        }
+        .bonding-percentage {
+            color: white;
+            font-weight: bold;
+            margin-left: auto;
+            margin-right: 10px;
+        }
+        .digital-dog {
+            width: 40px;
+            height: 40px;
+            background: url('Image/digital-dog.webp') no-repeat center;
+            background-size: contain;
+            position: absolute;
+            left: 4%;
+            bottom: 10px;
         }
         .fan-art-gallery {
             margin-top: 40px;
@@ -71,10 +88,15 @@
             gap: 10px;
             padding: 10px;
             white-space: nowrap;
+            animation: scrollSlider 10s linear infinite;
         }
         .slider img {
             width: 200px;
             border-radius: 10px;
+        }
+        @keyframes scrollSlider {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
     </style>
 </head>
@@ -88,11 +110,13 @@
     <div class="container">
         <h1>Welcome to Cryptonized Pets</h1>
         <p>Your beloved pets have been zapped into the blockchain! Now, it's time to bring them back home.</p>
-        <button class="btn" onclick="window.location.href='https://toshimart.com'">Get Free Pet</button>
+        <button class="btn" onclick="window.location.href='https://toshimart.com'">Save Your Pets Now</button>
     </div>
     <img src="Image/cce55bc2-0c7d-4288-8e5a-9acc6c3c77b4.webp" alt="Breaking News Banner" class="banner">
     <div class="bonding-curve">
         <div class="bonding-base"></div>
+        <div class="digital-dog"></div>
+        <div class="bonding-percentage">4%</div>
     </div>
     <div class="fan-art-gallery">
         <h2>Fan Art Gallery</h2>
@@ -108,6 +132,15 @@
             <img src="Image/fanart9.webp" alt="Fan Art 9">
             <img src="Image/fanart10.webp" alt="Fan Art 10">
         </div>
+    </div>
+    <div class="container">
+        <h2>Mini Game</h2>
+        <button class="btn" onclick="startGame()">Start Game</button>
+        <canvas id="gameCanvas" width="500" height="300" style="background: #333; display: block; margin: auto;"></canvas>
+    </div>
+    <div class="container">
+        <h2>Explore Our NFTs</h2>
+        <a href="https://opensea.io" class="btn">View on OpenSea</a>
     </div>
     <div class="container">
         <h2>Follow Us</h2>
