@@ -32,8 +32,9 @@
             margin-top: 20px;
         }
         .dropdown {
-            position: relative;
-            display: inline-block;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
         .dropdown-content {
             display: none;
@@ -53,8 +54,8 @@
             flex-wrap: wrap;
         }
         .pet-container img {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s;
@@ -67,8 +68,8 @@
             bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50%;
-            height: 30px;
+            width: 30%;
+            height: 20px;
             background: blue;
             border-radius: 30px;
             display: flex;
@@ -83,37 +84,6 @@
             background: lightblue;
             border-radius: 30px;
         }
-        .bonding-text {
-            position: absolute;
-            color: white;
-            right: 15px;
-            font-weight: bold;
-        }
-        .roadmap {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .roadmap h2 {
-            color: #ffcc00;
-        }
-        .roadmap-item {
-            margin: 10px 0;
-        }
-        .roadmap-item button {
-            background-color: #ffcc00;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        .roadmap-content {
-            display: none;
-            margin-top: 5px;
-        }
         .timer {
             font-size: 24px;
             font-weight: bold;
@@ -121,9 +91,6 @@
             position: fixed;
             bottom: 60px;
             right: 20px;
-        }
-        .contact {
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -148,27 +115,12 @@
     </div>
     <div class="bonding-curve">
         <div class="bonding-progress"></div>
-        <div class="bonding-text">4%</div>
     </div>
     <div class="timer" id="countdown"></div>
-    <div class="roadmap">
-        <h2>Memecoin Development Roadmap</h2>
-        <div class="roadmap-item">
-            <button onclick="toggleRoadmap('phase1')">Phase 1: Launch</button>
-            <div id="phase1" class="roadmap-content">Whitepaper released ✅</div>
-        </div>
-    </div>
-    <div class="contact">
-        <button class="btn" onclick="window.location.href='https://discord.gg/YOUR_DISCORD'">Contact Us</button>
-    </div>
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("uniswapDropdown");
             dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
-        function toggleRoadmap(id) {
-            var content = document.getElementById(id);
-            content.style.display = content.style.display === "block" ? "none" : "block";
         }
         function updateCountdown() {
             var countdownElement = document.getElementById("countdown");
