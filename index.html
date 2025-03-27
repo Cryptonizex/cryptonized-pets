@@ -89,13 +89,6 @@
             right: 15px;
             font-weight: bold;
         }
-        .mini-game {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
     </style>
 </head>
 <body>
@@ -113,28 +106,18 @@
     </div>
     <div class="pet-container">
         <h2>Select Your Pet</h2>
-        <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" class="pet-image" onclick="selectPet('pet1')">
-        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" class="pet-image" onclick="selectPet('pet2')">
-        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" class="pet-image" onclick="selectPet('pet3')">
+        <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" class="pet-image" onclick="window.location.href='https://opensea.io'">
+        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" class="pet-image" onclick="window.location.href='https://opensea.io'">
+        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" class="pet-image" onclick="window.location.href='https://opensea.io'">
     </div>
     <div class="bonding-curve">
         <div class="bonding-progress"></div>
         <div class="bonding-text">4%</div>
     </div>
-    <div class="mini-game">
-        <h2>Crypto Battle</h2>
-        <p>Battle your pet against enemies and win rewards!</p>
-        <button class="btn" onclick="startBattle()">Start Battle</button>
-        <div id="battle-field"></div>
-    </div>
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("uniswapDropdown");
             dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
-        function startBattle() {
-            let battleField = document.getElementById("battle-field");
-            battleField.innerHTML = "<p>Battle started! Your pet is fighting!</p>";
         }
     </script>
 </body>
