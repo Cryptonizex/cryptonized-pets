@@ -60,6 +60,29 @@
             text-decoration: none;
             font-size: 18px;
         }
+        
+        /* Fan Art Section */
+        .fan-art-container {
+            margin-top: 40px;
+            overflow: hidden;
+            width: 100%;
+            white-space: nowrap;
+        }
+        .fan-art-slider {
+            display: flex;
+            animation: scroll 10s linear infinite;
+        }
+        .fan-art {
+            width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body>
@@ -69,8 +92,8 @@
         <button class="btn">Rescue Your Pet</button>
         
         <!-- Links to social media and marketplace -->
-        <a href="#" class="social-link">Follow us on Twitter</a>
-        <a href="#" class="https://toshimart.xyz/board">Buy on Toshi Mart</a>
+        <a href="https://twitter.com/" class="social-link" target="_blank">Follow us on Twitter</a>
+        <a href="https://toshimart.xyz/board" class="social-link" target="_blank">Buy on Toshi Mart</a>
     </div>
     
     <!-- Banner Image (Upload "banner.webp" to your GitHub Image folder) -->
@@ -81,6 +104,16 @@
         <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Puppy" class="pet-image">
         <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Kitten" class="pet-image">
         <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Bird" class="pet-image">
+    </div>
+    
+    <!-- Fan Art Section -->
+    <div class="fan-art-container">
+        <h2>Fan Art Gallery</h2>
+        <div class="fan-art-slider">
+            <img src="Image/fanart1.webp" alt="Fan Art 1" class="fan-art">
+            <img src="Image/fanart2.webp" alt="Fan Art 2" class="fan-art">
+            <img src="Image/fanart3.webp" alt="Fan Art 3" class="fan-art">
+        </div>
     </div>
 </body>
 </html>
