@@ -55,8 +55,8 @@
             flex-wrap: wrap;
         }
         .pet-container img {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s;
@@ -65,12 +65,10 @@
             transform: scale(1.1);
         }
         .bonding-curve {
-            position: fixed;
-            bottom: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20%;
-            height: 15px;
+            position: relative;
+            margin: 20px auto;
+            width: 40%;
+            height: 20px;
             background: blue;
             border-radius: 30px;
             display: flex;
@@ -86,12 +84,10 @@
             border-radius: 30px;
         }
         .timer {
-            font-size: 24px;
+            font-size: 36px;
             font-weight: bold;
             color: red;
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
+            margin-top: 20px;
         }
         .roadmap {
             margin-top: 50px;
@@ -116,14 +112,15 @@
         <p>Your beloved pets have been zapped into the blockchain! Now, it's time to bring them back home.</p>
         <button class="btn" onclick="window.location.href='https://toshiMart.xyz'">Save Your Pets Now</button>
     </div>
+    <div class="bonding-curve">
+        <div class="bonding-progress"></div>
+    </div>
     <div class="pet-container">
-        <h2>Select Your Pet</h2>
+        <h2>Select Your Pet NFT</h2>
+        <p>Click on a pet to view it on OpenSea.</p>
         <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" onclick="window.location.href='https://opensea.io'">
         <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" onclick="window.location.href='https://opensea.io'">
         <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" onclick="window.location.href='https://opensea.io'">
-    </div>
-    <div class="bonding-curve">
-        <div class="bonding-progress"></div>
     </div>
     <div class="timer" id="countdown"></div>
     <div class="roadmap">
