@@ -99,6 +99,14 @@
             display: none;
             margin-top: 20px;
         }
+        .whitepaper-content {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -112,6 +120,7 @@
     <div class="container">
         <h1>Welcome to Cryptonized Pets</h1>
         <p>Your beloved pets have been zapped into the blockchain! Now, it's time to bring them back home.</p>
+        <p>Hold onto your leashes and head to <span style="color:red">Uniswap at LIGHT SPEED</span> to swap your tokens faster than a corgi chasing a squirrel!</p>
         <button class="btn" onclick="window.location.href='https://toshiMart.xyz'">Save Your Pets Now</button>
     </div>
     <div class="bonding-curve">
@@ -126,20 +135,33 @@
         <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" onclick="window.location.href='https://opensea.io'">
         <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" onclick="window.location.href='https://opensea.io'">
         <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" onclick="window.location.href='https://opensea.io'">
-         <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" onclick="window.location.href='https://opensea.io'">
-        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" onclick="window.location.href='https://opensea.io'">
-        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" onclick="window.location.href='https://opensea.io'">
     </div>
     <div class="timer" id="countdown"></div>
+    
     <div class="roadmap">
         <button class="btn" onclick="toggleRoadmap()">Cryptonized Pets Roadmap</button>
         <div class="roadmap-details" id="roadmapDetails">
-            <p>Phase 1: Concept & Whitepaper ✅</p>
-            <p>Phase 2: NFT Collection Release ✅</p>
-            <p>Phase 3: Uniswap Listing 🔄</p>
-            <p>Phase 4: Community Growth & Marketing</p>
+            <p>Phase 1: Zapping Pets into the Blockchain ✅</p>
+            <p>Phase 2: Unleashing NFTs on OpenSea ✅</p>
+            <p>Phase 3: Moonshot on Uniswap! 🚀 Coming Soon!</p>
         </div>
     </div>
+
+    <div class="container">
+        <button class="btn" onclick="toggleWhitePaper()">Read the Meme White Paper</button>
+        <div class="whitepaper-content" id="whitepaperContent">
+            <h2>Cryptonized Pets White Paper (The Meme Edition)</h2>
+            <p><strong>Introduction:</strong> Imagine a world where your pets get zapped into the blockchain. That's right, we've done it. Cryptonized Pets is here to make sure your fur babies are immortalized forever... in digital form.</p>
+            <p><strong>Problem Statement:</strong> Your pets are too cute to be limited to the real world. They deserve to exist in the metaverse.</p>
+            <p><strong>Solution:</strong> Cryptonized Pets offers a revolutionary new way to mint your pets into adorable NFTs, which are 100% more fetch-worthy than any other NFTs on the market.</p>
+            <p><strong>Uniswap Goal:</strong> The main goal right now? Uniswap, baby! We're flying at light speed to get these tokens swapped and zapped right into your wallet. Buckle up! 🏎💨</p>
+            <p><strong>Community Driven:</strong> Cryptonized Pets is powered by the community on Toshi Mart. It's like a massive pet park where everyone is tossing ideas around faster than a frisbee.</p>
+            <p><strong>Tokenomics:</strong> There are no tokens. Only pets.</p>
+            <p><strong>Roadmap:</strong> See the button above for our very serious roadmap.</p>
+            <p><strong>Conclusion:</strong> Get your pets, get your NFTs, and let’s take them to the moon. 🚀</p>
+        </div>
+    </div>
+
     <div class="container">
         <h2>Join Our Community</h2>
         <a href="https://discord.com" target="_blank">Discord</a> | 
@@ -155,6 +177,10 @@
         function toggleRoadmap() {
             var roadmap = document.getElementById("roadmapDetails");
             roadmap.style.display = roadmap.style.display === "block" ? "none" : "block";
+        }
+        function toggleWhitePaper() {
+            var whitepaper = document.getElementById("whitepaperContent");
+            whitepaper.style.display = whitepaper.style.display === "block" ? "none" : "block";
         }
     </script>
 </body>
