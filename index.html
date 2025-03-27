@@ -53,8 +53,8 @@
             flex-wrap: wrap;
         }
         .pet-container img {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s;
@@ -67,8 +67,8 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%;
-            height: 60px;
+            width: 70%;
+            height: 40px;
             background: blue;
             border-radius: 30px;
             display: flex;
@@ -88,6 +88,39 @@
             color: white;
             right: 15px;
             font-weight: bold;
+        }
+        .roadmap {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .roadmap h2 {
+            color: #ffcc00;
+        }
+        .roadmap-item {
+            margin: 10px 0;
+        }
+        .roadmap-item button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .roadmap-content {
+            display: none;
+            margin-top: 5px;
+        }
+        .timer {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            position: fixed;
+            bottom: 60px;
+            right: 20px;
         }
     </style>
 </head>
@@ -114,10 +147,26 @@
         <div class="bonding-progress"></div>
         <div class="bonding-text">4%</div>
     </div>
+    <div class="timer">∞ TIME REMAINING</div>
+    <div class="roadmap">
+        <h2>Memecoin Development Roadmap</h2>
+        <div class="roadmap-item">
+            <button onclick="toggleRoadmap('phase1')">Phase 1: Launch</button>
+            <div id="phase1" class="roadmap-content">Whitepaper released ✅</div>
+        </div>
+        <div class="roadmap-item">
+            <button onclick="toggleRoadmap('phase2')">Phase 2: Listings</button>
+            <div id="phase2" class="roadmap-content">Upcoming CEX Listings</div>
+        </div>
+    </div>
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("uniswapDropdown");
             dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+        function toggleRoadmap(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === "block" ? "none" : "block";
         }
     </script>
 </body>
