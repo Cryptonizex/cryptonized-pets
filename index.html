@@ -34,7 +34,8 @@
         .dropdown {
             position: absolute;
             top: 10px;
-            right: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .dropdown-content {
             display: none;
@@ -54,8 +55,8 @@
             flex-wrap: wrap;
         }
         .pet-container img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s;
@@ -65,11 +66,11 @@
         }
         .bonding-curve {
             position: fixed;
-            bottom: 50px;
+            bottom: 100px;
             left: 50%;
             transform: translateX(-50%);
-            width: 30%;
-            height: 20px;
+            width: 20%;
+            height: 15px;
             background: blue;
             border-radius: 30px;
             display: flex;
@@ -89,23 +90,31 @@
             font-weight: bold;
             color: red;
             position: fixed;
-            bottom: 60px;
+            bottom: 100px;
             right: 20px;
+        }
+        .roadmap {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .roadmap-details {
+            display: none;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <img src="Image/cce55bc2-0c7d-4288-8e5a-9acc6c3c77b4.webp" alt="Breaking News Banner" class="banner">
-    <div class="container">
-        <h1>Welcome to Cryptonized Pets</h1>
-        <p>Your beloved pets have been zapped into the blockchain! Now, it's time to bring them back home.</p>
-        <button class="btn" onclick="window.location.href='https://toshiMart.xyz'">Save Your Pets Now</button>
-    </div>
     <div class="dropdown">
         <button class="btn" onclick="toggleDropdown()">Uniswap</button>
         <div class="dropdown-content" id="uniswapDropdown">
             <iframe src="https://app.uniswap.org/#/swap" width="300" height="300"></iframe>
         </div>
+    </div>
+    <img src="Image/cce55bc2-0c7d-4288-8e5a-9acc6c3c77b4.webp" alt="Breaking News Banner" class="banner">
+    <div class="container">
+        <h1>Welcome to Cryptonized Pets</h1>
+        <p>Your beloved pets have been zapped into the blockchain! Now, it's time to bring them back home.</p>
+        <button class="btn" onclick="window.location.href='https://toshiMart.xyz'">Save Your Pets Now</button>
     </div>
     <div class="pet-container">
         <h2>Select Your Pet</h2>
@@ -117,10 +126,23 @@
         <div class="bonding-progress"></div>
     </div>
     <div class="timer" id="countdown"></div>
+    <div class="roadmap">
+        <button class="btn" onclick="toggleRoadmap()">Cryptonized Pets Roadmap</button>
+        <div class="roadmap-details" id="roadmapDetails">
+            <p>Phase 1: Concept & Whitepaper ✅</p>
+            <p>Phase 2: NFT Collection Release ✅</p>
+            <p>Phase 3: Uniswap Listing 🔄</p>
+            <p>Phase 4: Community Growth & Marketing</p>
+        </div>
+    </div>
     <script>
         function toggleDropdown() {
             var dropdown = document.getElementById("uniswapDropdown");
             dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+        function toggleRoadmap() {
+            var roadmap = document.getElementById("roadmapDetails");
+            roadmap.style.display = roadmap.style.display === "block" ? "none" : "block";
         }
         function updateCountdown() {
             var countdownElement = document.getElementById("countdown");
