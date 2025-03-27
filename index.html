@@ -155,26 +155,112 @@
         <div class="bonding-progress"></div>
         <span>10%</span>
     </div>
-    <div class="container">
-        <h2>Select Your Pet NFT</h2>
-        <p>Click on a pet to view it on OpenSea.</p>
-    </div>
-    <div class="pet-container">
-        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 1" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/1'">
-        <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 2" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/2'">
-        <img src="Image/118a5039-8cd9-4ebf-8ae9-330592e419a1.webp" alt="Cryptonized Pet 3" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/3'">
-        <img src="Image/bd4fefad-3ebf-4894-a8d3-323b34e37673.webp" alt="Cryptonized Pet 4" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/4'">
-        <img src="Image/d2f4fb47-60c6-47df-a67e-b7335c955ae4.webp" alt="Cryptonized Pet 5" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/5'">
-        <img src="Image/c05d464c-f694-47f8-9c9f-9ae2a58225bd.webp" alt="Cryptonized Pet 6" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/6'">
-        <img src="Image/523dc3c7-cea9-4f48-90f2-3e5baa9d9bb4.webp" alt="Cryptonized Pet 7" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/7'">
-        <img src="Image/f5f896fb-1788-46e3-b329-ca062c261736.webp" alt="Cryptonized Pet 8" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/8'">
-        <img src="Image/f0131e7f-9853-4eae-ac13-f3a56ddedffd.webp" alt="Cryptonized Pet 9" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/9'">
-        <img src="Image/8c2a6ea0-d6c4-43fa-af4a-598de7fabbf9.webp" alt="Cryptonized Pet 10" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/10'">
-        <img src="Image/20e37afe-278e-4878-9c0d-919a9120f144.webp" alt="Cryptonized Pet 11" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/11'">
-        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 12" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/12'">
-        <img src="Image/bfb47835-2b39-4d57-b09a-cb64eea7b3ae.webp" alt="Cryptonized Pet 12" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/13'">
-        <img src="Image/6770cd7e-2235-45b7-a00f-292382756ae6.webp" alt="Cryptonized Pet 12" onclick="window.location.href='https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/14'">
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptonized Pets</title>
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+            margin: 0;
+        }
+        .pet-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+        .pet {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            transition: background-color 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="pet-container" id="petContainer"></div>
+    
+    <script>
+        const pets = [
+            "20eacef3-7d72-4d53-8c6a-de6698e5790f.webp",
+            "6678f672-d123-4336-a374-fe96f15a80b8.webp",
+            "118a5039-8cd9-4ebf-8ae9-330592e419a1.webp",
+            "bd4fefad-3ebf-4894-a8d3-323b34e37673.webp",
+            "d2f4fb47-60c6-47df-a67e-b7335c955ae4.webp",
+            "c05d464c-f694-47f8-9c9f-9ae2a58225bd.webp",
+            "523dc3c7-cea9-4f48-90f2-3e5baa9d9bb4.webp",
+            "f5f896fb-1788-46e3-b329-ca062c261736.webp",
+            "f0131e7f-9853-4eae-ac13-f3a56ddedffd.webp",
+            "8c2a6ea0-d6c4-43fa-af4a-598de7fabbf9.webp",
+            "20e37afe-278e-4878-9c0d-919a9120f144.webp",
+            "51836173-67b5-4ea3-be6e-ee1f66b90521.webp",
+            "bfb47835-2b39-4d57-b09a-cb64eea7b3ae.webp",
+            "6770cd7e-2235-45b7-a00f-292382756ae6.webp"
+        ];
+
+        const petContainer = document.getElementById("petContainer");
+        const petElements = [];
+        
+        pets.forEach((pet, index) => {
+            let petImg = document.createElement("img");
+            petImg.src = `Image/${pet}`;
+            petImg.classList.add("pet");
+            petImg.dataset.speed = Math.random() * 2 + 1; 
+            petImg.dataset.colorState = "green";
+            petImg.style.top = Math.random() * window.innerHeight + "px";
+            petImg.style.left = Math.random() * window.innerWidth + "px";
+            petImg.onclick = () => window.location.href = `https://opensea.io/item/ethereum/0xd42d0fafbe0291f2b0967d8ea0ee0b00a42ec6fc/${index + 1}`;
+            petContainer.appendChild(petImg);
+            petElements.push(petImg);
+        });
+        
+        function movePets() {
+            petElements.forEach(pet => {
+                let x = parseFloat(pet.style.left);
+                let y = parseFloat(pet.style.top);
+                let dx = (Math.random() - 0.5) * pet.dataset.speed * 4;
+                let dy = (Math.random() - 0.5) * pet.dataset.speed * 4;
+                
+                x += dx;
+                y += dy;
+                
+                if (x <= 0 || x >= window.innerWidth - 80) dx *= -1;
+                if (y <= 0 || y >= window.innerHeight - 80) dy *= -1;
+                
+                pet.style.left = x + "px";
+                pet.style.top = y + "px";
+                
+                let opacity = pet.dataset.colorState === "green" ? 0.2 : 0.4;
+                pet.style.boxShadow = `0 0 20px rgba(0, 255, 0, ${opacity})`;
+            });
+            requestAnimationFrame(movePets);
+        }
+        
+        function simulateTrading() {
+            setInterval(() => {
+                petElements.forEach(pet => {
+                    let random = Math.random();
+                    if (random > 0.5) {
+                        pet.dataset.colorState = "green";
+                        pet.dataset.speed = Math.random() * 2 + 2;
+                    } else {
+                        pet.dataset.colorState = "red";
+                        pet.dataset.speed = Math.random() + 0.5;
+                    }
+                });
+            }, 2000);
+        }
+        
+        movePets();
+        simulateTrading();
+    </script>
+</body>
+</html>
+
     <div class="timer" id="countdown"></div>
     
     <div class="roadmap">
