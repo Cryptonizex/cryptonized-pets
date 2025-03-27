@@ -27,6 +27,73 @@
   </a>
 </div>
 
+ <style>
+  .story-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+  }
+
+  .story-button {
+    width: 100%;
+    background-color: #ffcc00;
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+
+  .story-button:hover {
+    background-color: #ff9900;
+  }
+
+  .story-content {
+    display: none;
+    background: url('your-image.jpg') no-repeat center center/cover;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    transition: max-height 0.5s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .story-text {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .show {
+    display: block;
+    max-height: 500px;
+  }
+</style>
+
+<div class="story-container">
+  <button class="story-button" onclick="toggleStory()">🐶 Discover Corgi's Story</button>
+  <div class="story-content" id="storyBox">
+    <div class="story-text">
+      <h2>The Legend of Corgi the Dog</h2>
+      <p>Once upon a time, in a world full of adventure, there lived a brave little Corgi who...</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleStory() {
+    var storyBox = document.getElementById("storyBox");
+    storyBox.classList.toggle("show");
+  }
+</script>
+
+ 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
