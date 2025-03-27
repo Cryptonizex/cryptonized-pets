@@ -50,6 +50,7 @@
             margin: 10px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
         }
         
         /* Style for social media links */
@@ -83,6 +84,26 @@
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
         }
+        
+        /* Game Section */
+        .game-container {
+            margin-top: 40px;
+        }
+        .battle-log {
+            background: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            height: 150px;
+            overflow-y: auto;
+            text-align: left;
+        }
+        .hp-bar {
+            background: red;
+            height: 20px;
+            width: 100px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -94,26 +115,55 @@
         <!-- Links to social media and marketplace -->
         <a href="https://twitter.com/" class="social-link" target="_blank">Follow us on Twitter</a>
         <a href="https://toshimart.xyz/board" class="social-link" target="_blank">Buy on Toshi Mart</a>
+        <a href="https://discord.com/" class="social-link" target="_blank">Join us on Discord</a>
     </div>
     
     <!-- Banner Image (Upload "banner.webp" to your GitHub Image folder) -->
     <img src="Image/f6f28530-4c19-440d-acd2-9ad9e639242c.webp" alt="Breaking News Banner" class="banner">
     
     <div class="pet-container">
+        <h2>Select Your Pet</h2>
         <!-- Pet Images (Upload these to your GitHub Image folder) -->
-        <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Puppy" class="pet-image">
-        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Kitten" class="pet-image">
-        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Bird" class="pet-image">
+        <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Puppy" class="pet-image" onclick="selectPet('Puppy')">
+        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Kitten" class="pet-image" onclick="selectPet('Kitten')">
+        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Bird" class="pet-image" onclick="selectPet('Bird')">
     </div>
     
     <!-- Fan Art Section -->
     <div class="fan-art-container">
         <h2>Fan Art Gallery</h2>
         <div class="fan-art-slider">
+            <!-- Upload fan art images to "Image" folder on GitHub -->
             <img src="Image/fanart1.webp" alt="Fan Art 1" class="fan-art">
             <img src="Image/fanart2.webp" alt="Fan Art 2" class="fan-art">
             <img src="Image/fanart3.webp" alt="Fan Art 3" class="fan-art">
         </div>
     </div>
+    
+    <!-- Game Section -->
+    <div class="game-container">
+        <h2>Battle Crypto Monsters!</h2>
+        <button class="btn" onclick="startBattle()">Start Battle</button>
+        <div class="hp-bar" id="hpBar"></div>
+        <div class="battle-log" id="battleLog"></div>
+    </div>
+    
+    <script>
+        let selectedPet = '';
+        function selectPet(pet) {
+            selectedPet = pet;
+            alert(`You selected ${pet}!`);
+        }
+        function startBattle() {
+            if (!selectedPet) {
+                alert("Select a pet first!");
+                return;
+            }
+            const log = document.getElementById("battleLog");
+            log.innerHTML = `A wild blockchain monster appears!<br>${selectedPet} attacks!<br>`;
+            setTimeout(() => log.innerHTML += "The monster fights back!<br>", 1000);
+            setTimeout(() => log.innerHTML += "You win the battle!<br>", 2000);
+        }
+    </script>
 </body>
 </html>
