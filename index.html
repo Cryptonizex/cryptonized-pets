@@ -86,13 +86,14 @@
             background-color: #333;
             padding: 10px;
             border-radius: 5px;
+            cursor: move;
         }
     </style>
 </head>
 <body>
     <div class="dropdown">
         <button class="btn" onclick="toggleDropdown()">Uniswap</button>
-        <div class="dropdown-content" id="uniswapDropdown">
+        <div class="dropdown-content" id="uniswapDropdown" onmousedown="dragElement(this)">
             <iframe src="https://app.uniswap.org/#/swap" width="300" height="300"></iframe>
         </div>
     </div>
@@ -135,6 +136,29 @@
         function toggleDropdown() {
             var dropdown = document.getElementById("uniswapDropdown");
             dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        }
+        function dragElement(elmnt) {
+            var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+            elmnt.onmousedown = function(e) {
+                e.preventDefault();
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+            };
+            function elementDrag(e) {
+                e.preventDefault();
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
         }
     </script>
 </body>
