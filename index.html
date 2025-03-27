@@ -28,36 +28,16 @@
             border-radius: 5px;
             margin-top: 20px;
         }
-        .game-container {
-            margin-top: 40px;
-            background: #222;
-            padding: 20px;
-            border-radius: 10px;
+        .dropdown {
+            position: relative;
             display: inline-block;
         }
-        .battle-area {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-        .hp-bar {
-            background: red;
-            height: 20px;
-            width: 100px;
-            border-radius: 5px;
-        }
-        .attack-effect {
+        .dropdown-content {
+            display: none;
             position: absolute;
-            width: 50px;
-            height: 50px;
-            background: yellow;
-            border-radius: 50%;
-            animation: attackAnim 0.5s linear;
-        }
-        @keyframes attackAnim {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.5); }
-            100% { transform: scale(1); }
+            background-color: #222;
+            padding: 10px;
+            border-radius: 5px;
         }
         .bonding-curve {
             position: fixed;
@@ -89,38 +69,48 @@
             display: flex;
             overflow-x: auto;
             white-space: nowrap;
-            margin-top: 20px;
+            animation: scrollGallery 10s linear infinite;
+        }
+        @keyframes scrollGallery {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
         }
         .fan-art-gallery img {
-            width: 150px;
-            margin-right: 10px;
-            border-radius: 10px;
+            width: 200px;
+            margin: 5px;
         }
-        .social-links {
+        .mini-game {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
             margin-top: 20px;
+        }
+        .battle-effects {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Battle Crypto Monsters!</h2>
-        <div class="battle-area">
-            <div>
-                <img id="playerImage" src="Image/pet1.webp" width="150">
-                <div class="hp-bar" id="playerHp"></div>
-            </div>
-            <div>
-                <img id="monsterImage" src="Image/monster.webp" width="150">
-                <div class="hp-bar" id="monsterHp"></div>
-            </div>
+    <div class="dropdown">
+        <button class="btn" onclick="toggleDropdown()">Uniswap</button>
+        <div class="dropdown-content" id="uniswapDropdown">
+            <iframe src="https://app.uniswap.org/#/swap" width="300" height="300"></iframe>
         </div>
-        <button class="btn" onclick="attack()">Attack</button>
-        <button class="btn" onclick="defend()">Defend</button>
-        <div class="battle-log" id="battleLog"></div>
     </div>
-    <div class="bonding-curve">
-        <div class="bonding-progress"></div>
-        <div class="bonding-text">4%</div>
+    <div class="container">
+        <h1>Welcome to Cryptonized Pets</h1>
+        <p>Your beloved pets have been zapped into the blockchain! Now, it's time to bring them back home.</p>
+        <button class="btn" onclick="window.location.href='https://toshimart.com'">Save Your Pets Now</button>
+    </div>
+    <img src="Image/cce55bc2-0c7d-4288-8e5a-9acc6c3c77b4.webp" alt="Breaking News Banner" class="banner">
+    <div class="pet-container">
+        <h2>Select Your Pet</h2>
+        <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" class="pet-image" onclick="selectPet('pet1')">
+        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" class="pet-image" onclick="selectPet('pet2')">
+        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" class="pet-image" onclick="selectPet('pet3')">
     </div>
     <div class="fan-art-gallery">
         <img src="Image/fanart1.webp">
@@ -138,50 +128,30 @@
         <a href="https://discord.com/">Join us on Discord</a>
         <a href="https://opensea.io/">View our NFTs on OpenSea</a>
     </div>
-    <audio autoplay loop>
-        <source src="audio/background-music.mp3" type="audio/mp3">
-    </audio>
+    <div class="bonding-curve">
+        <div class="bonding-progress"></div>
+        <div class="bonding-text">4%</div>
+    </div>
+    <div class="mini-game">
+        <h2>Crypto Battle</h2>
+        <p>Battle your pet against enemies and win rewards!</p>
+        <button class="btn" onclick="startBattle()">Start Battle</button>
+        <div id="battle-field"></div>
+    </div>
     <script>
-        let player = { hp: 100, attack: 20 };
-        let monster = { hp: 120, attack: 15 };
-        function attack() {
-            if (monster.hp > 0 && player.hp > 0) {
-                monster.hp -= player.attack;
-                showEffect('monsterImage');
-                logAction("You attacked the monster!");
-                updateHpBars();
-                monsterTurn();
-            }
+        function toggleDropdown() {
+            var dropdown = document.getElementById("uniswapDropdown");
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
         }
-        function defend() {
-            logAction("You defended against the next attack!");
-            monsterTurn();
-        }
-        function monsterTurn() {
-            if (monster.hp > 0) {
-                player.hp -= monster.attack;
-                showEffect('playerImage');
-                logAction("The monster attacks you!");
-                updateHpBars();
-                checkGameOver();
-            }
-        }
-        function updateHpBars() {
-            document.getElementById('playerHp').style.width = player.hp + 'px';
-            document.getElementById('monsterHp').style.width = monster.hp + 'px';
-        }
-        function logAction(action) {
-            document.getElementById('battleLog').innerHTML += action + "<br>";
-        }
-        function checkGameOver() {
-            if (player.hp <= 0) alert("You lost the battle!");
-            if (monster.hp <= 0) alert("You won the battle!");
-        }
-        function showEffect(targetId) {
-            let effect = document.createElement("div");
-            effect.className = "attack-effect";
-            document.getElementById(targetId).appendChild(effect);
-            setTimeout(() => effect.remove(), 500);
+        function startBattle() {
+            let battleField = document.getElementById("battle-field");
+            battleField.innerHTML = "<p>Battle started! Your pet is fighting!</p>";
+            let attackEffect = document.createElement("div");
+            attackEffect.className = "battle-effects";
+            attackEffect.style.background = "url('Image/effect.webp') no-repeat center center";
+            attackEffect.style.display = "block";
+            battleField.appendChild(attackEffect);
+            setTimeout(() => attackEffect.style.display = "none", 1000);
         }
     </script>
 </body>
