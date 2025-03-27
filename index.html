@@ -78,7 +78,8 @@
         .dropdown {
             position: absolute;
             top: 10px;
-            right: 10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .dropdown-content {
             display: none;
@@ -87,6 +88,26 @@
             padding: 10px;
             border-radius: 5px;
             cursor: move;
+        }
+        .bonding-curve {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 20px;
+            background: blue;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .bonding-base {
+            width: 30px;
+            height: 30px;
+            background: blue;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
         }
     </style>
 </head>
@@ -108,6 +129,9 @@
         <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" class="pet-image" onclick="selectPet('pet1')">
         <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" class="pet-image" onclick="selectPet('pet2')">
         <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" class="pet-image" onclick="selectPet('pet3')">
+    </div>
+    <div class="bonding-curve">
+        <div class="bonding-base"></div>
     </div>
     <script>
         let lastPosition = { top: window.innerHeight / 2 - 150, left: window.innerWidth / 2 - 150 };
