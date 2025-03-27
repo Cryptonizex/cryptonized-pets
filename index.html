@@ -53,8 +53,8 @@
             flex-wrap: wrap;
         }
         .pet-container img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s;
@@ -64,11 +64,11 @@
         }
         .bonding-curve {
             position: fixed;
-            bottom: 20px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70%;
-            height: 40px;
+            width: 50%;
+            height: 30px;
             background: blue;
             border-radius: 30px;
             display: flex;
@@ -122,6 +122,9 @@
             bottom: 60px;
             right: 20px;
         }
+        .contact {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -139,25 +142,24 @@
     </div>
     <div class="pet-container">
         <h2>Select Your Pet</h2>
-        <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" class="pet-image" onclick="window.location.href='https://opensea.io'">
-        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" class="pet-image" onclick="window.location.href='https://opensea.io'">
-        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" class="pet-image" onclick="window.location.href='https://opensea.io'">
+        <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" onclick="window.location.href='https://opensea.io'">
+        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" onclick="window.location.href='https://opensea.io'">
+        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" onclick="window.location.href='https://opensea.io'">
     </div>
     <div class="bonding-curve">
         <div class="bonding-progress"></div>
         <div class="bonding-text">4%</div>
     </div>
-    <div class="timer">∞ TIME REMAINING</div>
+    <div class="timer" id="countdown"></div>
     <div class="roadmap">
         <h2>Memecoin Development Roadmap</h2>
         <div class="roadmap-item">
             <button onclick="toggleRoadmap('phase1')">Phase 1: Launch</button>
             <div id="phase1" class="roadmap-content">Whitepaper released ✅</div>
         </div>
-        <div class="roadmap-item">
-            <button onclick="toggleRoadmap('phase2')">Phase 2: Listings</button>
-            <div id="phase2" class="roadmap-content">Upcoming CEX Listings</div>
-        </div>
+    </div>
+    <div class="contact">
+        <button class="btn" onclick="window.location.href='https://discord.gg/YOUR_DISCORD'">Contact Us</button>
     </div>
     <script>
         function toggleDropdown() {
@@ -168,6 +170,20 @@
             var content = document.getElementById(id);
             content.style.display = content.style.display === "block" ? "none" : "block";
         }
+        function updateCountdown() {
+            var countdownElement = document.getElementById("countdown");
+            var targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 30);
+            setInterval(() => {
+                var now = new Date();
+                var timeLeft = targetDate - now;
+                var days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m`;
+            }, 1000);
+        }
+        updateCountdown();
     </script>
 </body>
 </html>
