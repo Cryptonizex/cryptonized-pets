@@ -86,12 +86,12 @@
         <a href="https://toshimart.xyz/board" class="social-link" target="_blank">Buy on Toshi Mart</a>
         <a href="https://discord.com/" class="social-link" target="_blank">Join us on Discord</a>
     </div>
-    <img src="Image/banner.webp" alt="Breaking News Banner" class="banner">
+    <img src="Image/cce55bc2-0c7d-4288-8e5a-9acc6c3c77b4.webp" alt="Breaking News Banner" class="banner">
     <div class="pet-container">
         <h2>Select Your Pet</h2>
-        <img src="Image/pet1.webp" alt="Cryptonized Pet 1" class="pet-image" onclick="selectPet('Pet1')">
-        <img src="Image/pet2.webp" alt="Cryptonized Pet 2" class="pet-image" onclick="selectPet('Pet2')">
-        <img src="Image/pet3.webp" alt="Cryptonized Pet 3" class="pet-image" onclick="selectPet('Pet3')">
+        <img src="Image/6678f672-d123-4336-a374-fe96f15a80b8.webp" alt="Cryptonized Pet 1" class="pet-image" onclick="selectPet('pet1')">
+        <img src="Image/20eacef3-7d72-4d53-8c6a-de6698e5790f.webp" alt="Cryptonized Pet 2" class="pet-image" onclick="selectPet('pet2')">
+        <img src="Image/51836173-67b5-4ea3-be6e-ee1f66b90521.webp" alt="Cryptonized Pet 3" class="pet-image" onclick="selectPet('pet3')">
     </div>
     <div class="game-container">
         <h2>Battle Crypto Monsters!</h2>
@@ -109,11 +109,16 @@
         <button class="btn" onclick="defend()">Defend</button>
         <div class="battle-log" id="battleLog"></div>
     </div>
+    <div class="container">
+        <h2>Uniswap Integration</h2>
+        <p>Trade crypto directly from our site!</p>
+        <iframe src="https://app.uniswap.org/#/swap" width="600" height="400"></iframe>
+    </div>
     <script>
         let player = { hp: 100, attack: 20 };
         let monster = { hp: 120, attack: 15 };
         function selectPet(pet) {
-            document.getElementById('playerImage').src = `Image/${pet.toLowerCase()}.webp`;
+            document.getElementById('playerImage').src = `Image/${pet}.webp`;
             alert(`You selected ${pet}!`);
         }
         function attack() {
