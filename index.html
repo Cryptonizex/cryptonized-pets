@@ -1,114 +1,138 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+<head>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      background-color: #ffeb99;
+      padding: 20px;
+    }
 
- <div style="display: flex; gap: 10px; margin-top: 20px;">
-  <a href="https://toshimart.xyz/0xeaff0e84d8f7a07c6e41c5883d5e794b2653b5d7" target="_blank">
-    <button style="background-color: blue; color: white; padding: 10px 20px; border: none; cursor: pointer;">
-      Buy Token
-    </button>
-  </a>
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
 
-  <a href="https://opensea.io/collection/cryptonizedpets" target="_blank">
-    <button style="background-color: purple; color: white; padding: 10px 20px; border: none; cursor: pointer;">
-      OpenSea
-    </button>
-  </a>
+    .fun-button {
+      background-color: #ff9900;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
 
-  <a href="https://x.com/toby_the_corgii" target="_blank">
-    <button style="background-color: gray; color: white; padding: 10px 20px; border: none; cursor: pointer;">
-      Follow Us
-    </button>
-  </a>
+    .fun-button:hover {
+      transform: scale(1.1);
+      background-color: #ff6600;
+    }
 
-  <a href="https://t.me/+kEx9jIo-sy5mNTJh" target="_blank">
-    <button style="background-color: #0088cc; color: white; padding: 10px 20px; border: none; cursor: pointer;">
-      Join Telegram
-    </button>
-  </a>
+    .fun-button img {
+      width: 25px;
+      height: 25px;
+    }
 
-  <a href="https://tokentool.bitbond.com/tokenlocker/0xCA7480A82728B8DF393814C6f2aBae7B051B69dD/8453" target="_blank">
-    <button style="background-color: green; color: white; padding: 10px 20px; border: none; cursor: pointer;">
-      Liquidity Locked
-    </button>
-  </a>
-</div>
+    .story-container {
+      max-width: 600px;
+      margin: auto;
+      background: url('20eacef3-7d72-4d53-8c6a-de6698e5790f.webp') no-repeat center/cover;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 16px;
+      transition: max-height 0.5s ease-in-out;
+      max-height: 0;
+      overflow: hidden;
+      display: none;
+    }
 
+    .story-text {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 15px;
+      border-radius: 15px;
+      color: white;
+    }
 
- <style>
-  .story-container {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    position: relative;
-  }
+    .story-button {
+      background-color: #ffcc00;
+      color: white;
+      font-size: 20px;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      border-radius: 15px;
+      transition: background 0.3s ease;
+    }
 
-  .story-button {
-    width: 100%;
-    background-color: #ffcc00;
-    color: white;
-    font-size: 18px;
-    padding: 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: background 0.3s ease;
-  }
+    .story-button:hover {
+      background-color: #ff9900;
+    }
 
-  .story-button:hover {
-    background-color: #ff9900;
-  }
+    .show {
+      display: block;
+      max-height: 600px;
+    }
 
-  .story-content {
-    display: none;
-    background: url('20eacef3-7d72-4d53-8c6a-de6698e5790f.webp') no-repeat center center/cover;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    transition: max-height 0.5s ease-in-out;
-    max-height: 0;
-    overflow: hidden;
-  }
+  </style>
+</head>
+<body>
 
-  .story-text {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 15px;
-    border-radius: 10px;
-  }
+  <div class="button-container">
+    <a href="https://toshimart.xyz/0xeaff0e84d8f7a07c6e41c5883d5e794b2653b5d7" target="_blank">
+      <button class="fun-button">🐶 Buy Token</button>
+    </a>
 
-  .show {
-    display: block;
-    max-height: 500px;
-  }
-</style>
+    <a href="https://opensea.io/collection/cryptonizedpets" target="_blank">
+      <button class="fun-button">🔹 OpenSea</button>
+    </a>
 
-<div class="story-container">
+    <a href="https://x.com/toby_the_corgii" target="_blank">
+      <button class="fun-button">🐾 Follow Us</button>
+    </a>
+
+    <a href="https://t.me/+kEx9jIo-sy5mNTJh" target="_blank">
+      <button class="fun-button">📢 Join Telegram</button>
+    </a>
+
+    <a href="https://tokentool.bitbond.com/tokenlocker/0xCA7480A82728B8DF393814C6f2aBae7B051B69dD/8453" target="_blank">
+      <button class="fun-button">🔒 Liquidity Locked</button>
+    </a>
+  </div>
+
+  <br>
+
   <button class="story-button" onclick="toggleStory()">🐶 Discover Toby's Story</button>
-  <div class="story-content" id="storyBox">
+
+  <div class="story-container" id="storyBox">
     <div class="story-text">
       <h2>The Tale of Toby the Corgi</h2>
-      <p>Toby was just a regular, happy-go-lucky Corgi, living his best life—chasing squirrels, rolling in the grass, and stealing snacks when no one was looking. But one fateful afternoon, as he bolted after a particularly sneaky squirrel, the sky darkened.
-
-Out of nowhere, a mystical Base God unleashed a storm of Blockchain Bolts. The sky crackled with energy, the air hummed with digital power, and before Toby could bark in protest—ZAP!
-
-Toby was sucked into the blockchain. His fur shimmered with pixelated energy, his paws left trails of glowing code, and his bark echoed through the crypto-verse.
-
-Now, Toby must navigate this strange new world, battling the Bears, dodging the Rug Pulls, and outsmarting the Whales to reclaim his freedom.
-
-Will Toby conquer the blockchain and find his way back home? Or will he become the legendary Guardian of the Crypto Realm?
-
-🐶💥 The adventure begins...</p>
+      <p>Toby was just a happy-go-lucky Corgi, chasing squirrels and rolling in the grass. But one day, as he bolted after a sneaky squirrel, the sky darkened...⚡</p>
+      <p>A **mystical Base God** unleashed a storm of **Blockchain Bolts**, and before Toby could bark—ZAP! 💥</p>
+      <p>Now trapped in the **Crypto Realm**, Toby must battle the Bears 🐻, dodge the Rug Pulls 🚨, and outsmart the Whales 🐋 to find his way home.</p>
+      <p>🐶💥 The adventure begins...</p>
     </div>
   </div>
-</div>
 
-<script>
-  function toggleStory() {
-    var storyBox = document.getElementById("storyBox");
-    storyBox.classList.toggle("show");
-  }
-</script>
+  <script>
+    function toggleStory() {
+      var storyBox = document.getElementById("storyBox");
+      storyBox.classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
 
  
 <head>
