@@ -207,7 +207,6 @@
     animation: float 3s infinite ease-in-out, flashGlow 2s infinite alternate;
 }
 
-/* Floating up and down */
 @keyframes float {
     0% {
         transform: translateY(0px);
@@ -220,7 +219,6 @@
     }
 }
 
-/* Flashing red and green light */
 @keyframes flashGlow {
     0% {
         box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.9);
@@ -233,7 +231,6 @@
     }
 }
 
-/* Hover Effect */
 .pet-container img:hover {
     transform: scale(1.1);
 }
@@ -300,7 +297,7 @@
     </div>
     <div class="bonding-curve">
         <div class="bonding-progress"></div>
-        <span>25%</span>
+        <span>28%</span>
     </div>
 
     <div class="container" style="text-align: center; background-color: #ffeb3b; padding: 20px; border-radius: 15px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);">
@@ -356,6 +353,18 @@
 
 <!-- Fan Art Section -->
 <div class="fan-art-section">
+
+  .fan-art-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: black; /* Black text */
+    background: linear-gradient(to right, yellow 30%, black 70%); /* Yellow & Black gradient */
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-shadow: 3px 3px 15px rgba(255, 255, 0, 0.9); /* Yellow glowing effect */
+    display: inline-block;
+    border: 3px solid yellow; /* Yellow border */
+}
     <h2>Fan Art Gallery</h2>
     <div class="fan-art-container">
         <div class="fan-art-rows">
