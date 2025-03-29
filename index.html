@@ -88,6 +88,36 @@
 </head>
 <body>
 
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Sign-Up</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  <style>
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .fun-button {
+      background-color: #ff9800;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+    .fun-button:hover {
+      background-color: #e68900;
+    }
+  </style>
+</head>
+<body>
+
   <div class="button-container">
     <a href="https://toshimart.xyz/0xeaff0e84d8f7a07c6e41c5883d5e794b2653b5d7" target="_blank">
       <button class="fun-button">🐶 Buy Token</button>
@@ -112,7 +142,52 @@
     <a href="https://toshimart.xyz/0xeaff0e84d8f7a07c6e41c5883d5e794b2653b5d7" target="_blank">
       <button class="fun-button">🚀 CHARTS</button>
     </a>
+
+    <button class="fun-button" onclick="connectWallet()">💳 Sign Up with Wallet</button>
   </div>
+
+  <script>
+    emailjs.init("P1kMBcLFl4q1q0rH7"); // Initialize EmailJS
+
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+          const walletAddress = accounts[0];
+
+          // Send the wallet address to EmailJS
+          sendEmail(walletAddress);
+
+          alert("Wallet connected: " + walletAddress);
+        } catch (error) {
+          console.error(error);
+          alert("Failed to connect wallet.");
+        }
+      } else {
+        alert("MetaMask is not installed. Please install it to continue.");
+      }
+    }
+
+    function sendEmail(walletAddress) {
+      const templateParams = {
+        to_email: "masterandpuppies@gmail.com",
+        wallet_address: walletAddress
+      };
+
+      emailjs.send("service_yourServiceID", "template_c3mko8g", templateParams)
+        .then(function(response) {
+          console.log("SUCCESS!", response.status, response.text);
+          alert("Wallet address sent successfully!");
+        }, function(error) {
+          console.log("FAILED...", error);
+          alert("Failed to send wallet address.");
+        });
+    }
+  </script>
+
+</body>
+</html>
+
 
   <br>
 
