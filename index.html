@@ -250,7 +250,7 @@
             font-weight: bold;
         }
         .bonding-progress {
-            width: 25%;
+            width: 28%;
             height: 100%;
             background: lightblue;
             border-radius: 30px;
@@ -327,14 +327,89 @@
     </div>
     <div class="timer" id="countdown"></div>
     
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptonized Pets Roadmap</title>
+    <style>
+        .roadmap {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .btn {
+            background: yellow;
+            color: black;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: gold;
+            transform: scale(1.05);
+        }
+
+        .roadmap-details {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .roadmap-details p {
+            font-size: 16px;
+            margin: 10px 0;
+            padding: 5px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
     <div class="roadmap">
         <button class="btn" onclick="toggleRoadmap()">Cryptonized Pets Roadmap</button>
         <div class="roadmap-details" id="roadmapDetails">
-            <p>Phase 1: Zapping Pets into the Blockchain ✅</p>
-            <p>Phase 2: Unleashing NFTs on OpenSea ✅</p>
-            <p>Phase 3: Moonshot on Uniswap! 🚀 Coming Soon!</p>
+            <p>✅ Phase 1: Zapping Pets into the Blockchain</p>
+            <p>✅ Phase 2: Unleashing NFTs on OpenSea</p>
+            <p>🔥 Phase 3: Exclusive NFT Airdrops for Holders</p>
+            <p>🚀 Phase 4: Moonshot on Uniswap!</p>
+            <p>🌐 Phase 5: Future Website Migration to XYZ</p>
+            <p>🛍️ Phase 6: Cryptonized Merchandise Launch</p>
+            <p>🎮 Phase 7: $TOBY Game Development Begins</p>
+            <p>🤝 Phase 8: Strategic Partnerships & Collaborations</p>
+            <p>🎭 Phase 9: Community Events & IRL Meetups</p>
+            <p>🚀 Phase 10: Cryptonized Universe Expansion</p>
         </div>
     </div>
+
+    <script>
+        function toggleRoadmap() {
+            var roadmap = document.getElementById("roadmapDetails");
+            roadmap.style.display = (roadmap.style.display === "block") ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>
+
 
     <div class="container">
         <button class="btn" onclick="toggleWhitePaper()">Read the Meme White Paper</button>
