@@ -249,33 +249,7 @@
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
-        .fan-art-section {
-            margin-top: 40px;
-        }
-        .fan-art-container {
-            width: 100%;
-            overflow: hidden;
-        }
-        .fan-art-slider {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            animation: slide 20s linear infinite;
-        }
-        .fan-art-slider img {
-            width: 200px;
-            height: 200px;
-            margin: 10px;
-            border-radius: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        @keyframes slide {
-            0% {
-                transform: translateX(0%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+       
         }
     </style>
 </head>
@@ -343,27 +317,27 @@
         </div>
     </div>
 
-   <!-- Fan Art Section -->
+ <!-- Fan Art Section -->
 <div class="fan-art-section">
     <h2>Fan Art Gallery</h2>
     <div class="fan-art-container">
         <div class="fan-art-slider">
-            <img src="Image/00a54aaa-306f-442e-8628-98c5ad6e0b2e.webp" alt="Fan Art 1">
-            <img src="Image/3e90b068-5452-4e84-85e8-0b77fe72a062.webp" alt="Fan Art 2">
-            <img src="Image/2a00ab0c-9a4f-4a5c-99ad-a8347a63f586.webp" alt="Fan Art 3">
-            <img src="Image/23454692-60e4-4761-af74-3e2f22e9c9c3.webp" alt="Fan Art 4">
-            <img src="Image/a9f66740-299e-4d38-b431-b84afcfc8122.webp" alt="Fan Art 5">
-            <img src="Image/68787a2c-f259-4a77-9243-df5e31c22a97.webp" alt="Fan Art 6">
-            <img src="Image/461d5cdc-bf7c-4ad1-a256-588f731ed602.webp" alt="Fan Art 7">
-            <img src="Image/43b22503-ea4a-4ad2-8b41-28210315d1d2.webp" alt="Fan Art 8">
-            <img src="Image/00a54aaa-306f-442e-8628-98c5ad6e0b2e.webp" alt="Fan Art 9">
-            <img src="Image/3e90b068-5452-4e84-85e8-0b77fe72a062.webp" alt="Fan Art 10">
-            <img src="Image/2a00ab0c-9a4f-4a5c-99ad-a8347a63f586.webp" alt="Fan Art 11">
-            <img src="Image/6770cd7e-2235-45b7-a00f-292382756ae6.webp" alt="Fan Art 12">
-            <img src="Image/bfb47835-2b39-4d57-b09a-cb64eea7b3ae.webp" alt="Fan Art 13">
-            <img src="Image/fa3210a8-bec5-4034-874b-94162368d943.webp" alt="Fan Art 14">
-            <img src="Image/044e80c9-b940-4f8f-b15c-769892dbb60c.webp" alt="Fan Art 15">
-            <img src="Image/326c1fa4-ec4d-4cf1-859e-2a510aecddbe.webp" alt="Fan Art 16">
+            <img class="hover-left" src="Image/00a54aaa-306f-442e-8628-98c5ad6e0b2e.webp" alt="Fan Art 1">
+            <img class="hover-right" src="Image/3e90b068-5452-4e84-85e8-0b77fe72a062.webp" alt="Fan Art 2">
+            <img class="hover-left" src="Image/2a00ab0c-9a4f-4a5c-99ad-a8347a63f586.webp" alt="Fan Art 3">
+            <img class="hover-right" src="Image/23454692-60e4-4761-af74-3e2f22e9c9c3.webp" alt="Fan Art 4">
+            <img class="hover-left" src="Image/a9f66740-299e-4d38-b431-b84afcfc8122.webp" alt="Fan Art 5">
+            <img class="hover-right" src="Image/68787a2c-f259-4a77-9243-df5e31c22a97.webp" alt="Fan Art 6">
+            <img class="hover-left" src="Image/461d5cdc-bf7c-4ad1-a256-588f731ed602.webp" alt="Fan Art 7">
+            <img class="hover-right" src="Image/43b22503-ea4a-4ad2-8b41-28210315d1d2.webp" alt="Fan Art 8">
+            <img class="hover-left" src="Image/00a54aaa-306f-442e-8628-98c5ad6e0b2e.webp" alt="Fan Art 9">
+            <img class="hover-right" src="Image/3e90b068-5452-4e84-85e8-0b77fe72a062.webp" alt="Fan Art 10">
+            <img class="hover-left" src="Image/2a00ab0c-9a4f-4a5c-99ad-a8347a63f586.webp" alt="Fan Art 11">
+            <img class="hover-right" src="Image/6770cd7e-2235-45b7-a00f-292382756ae6.webp" alt="Fan Art 12">
+            <img class="hover-left" src="Image/bfb47835-2b39-4d57-b09a-cb64eea7b3ae.webp" alt="Fan Art 13">
+            <img class="hover-right" src="Image/fa3210a8-bec5-4034-874b-94162368d943.webp" alt="Fan Art 14">
+            <img class="hover-left" src="Image/044e80c9-b940-4f8f-b15c-769892dbb60c.webp" alt="Fan Art 15">
+            <img class="hover-right" src="Image/326c1fa4-ec4d-4cf1-859e-2a510aecddbe.webp" alt="Fan Art 16">
         </div>
     </div>
 </div>
@@ -382,6 +356,7 @@
     .fan-art-slider {
         display: flex;
         animation: scrollSlider 10s linear infinite;
+        position: relative;
     }
 
     .fan-art-slider img {
@@ -390,11 +365,18 @@
         margin: 0 10px;
         border-radius: 10px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, z-index 0.3s ease;
+        position: relative;
     }
 
-    .fan-art-slider img:hover {
-        transform: scale(1.1);
+    .hover-left:hover {
+        transform: translateY(-20px);
+        z-index: 2;
+    }
+
+    .hover-right:hover {
+        transform: translateY(20px);
+        z-index: 1;
     }
 
     @keyframes scrollSlider {
@@ -406,6 +388,25 @@
         }
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let images = document.querySelectorAll(".fan-art-slider img");
+        images.forEach(img => {
+            img.addEventListener("mouseover", function() {
+                if (this.classList.contains("hover-left")) {
+                    this.style.zIndex = "2";
+                } else {
+                    this.style.zIndex = "1";
+                }
+            });
+            img.addEventListener("mouseout", function() {
+                this.style.zIndex = "0";
+            });
+        });
+    });
+</script>
+
 <div class="container">
         <h2>Join Our Community</h2>
         <a href="https://discord.gg/CFC3rH2PnD" target="_blank">Discord</a> | 
