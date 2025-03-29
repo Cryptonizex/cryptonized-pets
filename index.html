@@ -122,6 +122,10 @@
 </head>
 <body>
 
+</style>
+</head>
+<body>
+
   <div class="button-container">
     <a href="https://toshimart.xyz/0xeaff0e84d8f7a07c6e41c5883d5e794b2653b5d7" target="_blank">
       <button class="fun-button">🐶 Buy Token</button>
@@ -147,47 +151,63 @@
       <button class="fun-button">🚀 CHARTS</button>
     </a>
 
-    <button class="fun-button" onclick="connectWallet()">💳 Sign Up with Wallet</button>
+    <!-- New Wallet Connect Button -->
+    <button class="fun-button" onclick="connectWallet()">🔗 Connect Wallet</button>
   </div>
 
+  <p id="status"></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
-    emailjs.init("P1kMBcLFl4q1q0rH7"); // Initialize EmailJS
+    emailjs.init("your_emailjs_user_id"); // Replace with your EmailJS user ID
 
     async function connectWallet() {
-      if (window.ethereum) {
+      if (typeof window.ethereum !== "undefined") {
+        const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+        const walletAddress = accounts[0];
+        
+        // Message to sign
+        const message = "I agree to receive airdrops from Toby!";
+        
         try {
-          const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-          const walletAddress = accounts[0];
+          const signature = await ethereum.request({
+            method: "personal_sign",
+            params: [message, walletAddress]
+          });
 
-          // Send the wallet address to EmailJS
-          sendEmail(walletAddress);
+          document.getElementById("status").innerText = "✅ Signed successfully! Sending your wallet...";
 
-          alert("Wallet connected: " + walletAddress);
+          // Send wallet to your email
+          sendToEmail(walletAddress, signature);
+
         } catch (error) {
+          document.getElementById("status").innerText = "❌ Signature failed!";
           console.error(error);
-          alert("Failed to connect wallet.");
         }
       } else {
         alert("MetaMask is not installed. Please install it to continue.");
       }
     }
 
-    function sendEmail(walletAddress) {
-      const templateParams = {
+    function sendToEmail(wallet, signature) {
+      emailjs.send("your_service_id", "your_template_id", {
         to_email: "masterandpuppies@gmail.com",
-        wallet_address: walletAddress
-      };
-
-      emailjs.send("service_yourServiceID", "template_c3mko8g", templateParams)
-        .then(function(response) {
-          console.log("SUCCESS!", response.status, response.text);
-          alert("Wallet address sent successfully!");
-        }, function(error) {
-          console.log("FAILED...", error);
-          alert("Failed to send wallet address.");
-        });
+        wallet_address: wallet,
+        signature: signature
+      })
+      .then(response => {
+        document.getElementById("status").innerText = "✅ Wallet submitted successfully!";
+      })
+      .catch(error => {
+        document.getElementById("status").innerText = "❌ Error submitting wallet!";
+        console.error(error);
+      });
     }
   </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
