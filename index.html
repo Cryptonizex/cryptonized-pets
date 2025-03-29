@@ -425,20 +425,118 @@
 </html>
 
 
-    <div class="container">
-        <button class="btn" onclick="toggleWhitePaper()">Read the Meme White Paper</button>
-        <div class="whitepaper-content" id="whitepaperContent">
-            <h2>Cryptonized Pets White Paper (The Meme Edition)</h2>
-            <p><strong>Introduction:</strong> Imagine a world where your pets get zapped into the blockchain. That's right, we've done it. Cryptonized Pets is here to make sure your fur babies are immortalized forever... in digital form.</p>
-            <p><strong>Problem Statement:</strong> Your pets are too cute to be limited to the real world. They deserve to exist in the metaverse.</p>
-            <p><strong>Solution:</strong> Cryptonized Pets offers a revolutionary new way to mint your pets into adorable NFTs, which are 100% more fetch-worthy than any other NFTs on the market.</p>
-            <p><strong>Uniswap Goal:</strong> The main goal right now? Uniswap, baby! We're flying at light speed to get these tokens swapped and zapped right into your wallet. Buckle up! 🏎💨</p>
-            <p><strong>Community Driven:</strong> Cryptonized Pets is powered by the community on Toshi Mart. It's like a massive pet park where everyone is tossing ideas around faster than a frisbee.</p>
-            <p><strong>Tokenomics:</strong> There are 1,000,000,000 tokens. And 4000 pets.</p>
-            <p><strong>Roadmap:</strong> See the button above for our very serious roadmap.</p>
-            <p><strong>Conclusion:</strong> Get your Tokens, get your NFTs, and let’s take them to the moon. 🚀</p>
-        </div>
+<style>
+    .whitepaper-container {
+        background: linear-gradient(45deg, #FFD700, #FF69B4, #87CEEB, #32CD32);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8);
+        text-align: center;
+        animation: pulseGlow 3s infinite alternate;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    @keyframes pulseGlow {
+        0% {
+            box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.5);
+        }
+        100% {
+            box-shadow: 0px 0px 20px rgba(255, 105, 180, 0.9);
+        }
+    }
+
+    .whitepaper-btn {
+        background-color: #000;
+        color: #FFD700;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 15px;
+        border-radius: 25px;
+        border: 2px solid #FF69B4;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .whitepaper-btn:hover {
+        background-color: #FF69B4;
+        color: #000;
+        transform: scale(1.1);
+    }
+
+    .whitepaper-content {
+        display: none;
+        margin-top: 20px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px black;
+        background: rgba(0, 0, 0, 0.8);
+        padding: 15px;
+        border-radius: 10px;
+        animation: slideIn 0.5s ease-in-out;
+    }
+
+    .whitepaper-content h2 {
+        color: #FFD700;
+        font-size: 24px;
+        text-shadow: 3px 3px 6px rgba(255, 215, 0, 0.9);
+    }
+
+    .whitepaper-content p {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 10px;
+        border-radius: 10px;
+        margin: 5px 0;
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+<div class="whitepaper-container">
+    <button class="whitepaper-btn" onclick="toggleWhitePaper()">📜 Read $TOBY the Meme White Paper 📜</button>
+    <div class="whitepaper-content" id="whitepaperContent">
+        <h2>Cryptonized Pets White Paper (The Meme Edition)</h2>
+        <p><strong>🚀 Introduction:</strong> Imagine a world where your pets get zapped into the blockchain. That's right, we've done it. Cryptonized Pets is here to make sure your fur babies are immortalized forever... in digital form.</p>
+        <p><strong>🤔 Problem Statement:</strong> Your pets are too cute to be limited to the real world. They deserve to exist in the metaverse.</p>
+        <p><strong>💡 Solution:</strong> Cryptonized Pets offers a revolutionary new way to mint your pets into adorable NFTs, which are 100% more fetch-worthy than any other NFTs on the market.</p>
+        <p><strong>🔥 Uniswap Goal:</strong> The main goal right now? **Uniswap, baby!** We're flying at light speed to get these tokens swapped and zapped right into your wallet. **Buckle up! 🏎💨**</p>
+        <p><strong>🌎 Community Driven:</strong> Cryptonized Pets is powered by the community on **Toshi Mart**. It's like a massive pet park where everyone is tossing ideas around faster than a frisbee.</p>
+        <p><strong>💰 Tokenomics:</strong> There are **1,000,000,000 tokens**. And **4000 pets**.</p>
+        <p><strong>🛣 Roadmap:</strong> See the button above for our **very serious roadmap.**</p>
+        <p><strong>🚀 Conclusion:</strong> Get your Tokens, get your NFTs, and let’s take them **to the moon.** 🚀🌕</p>
     </div>
+</div>
+
+<script>
+    function toggleWhitePaper() {
+        var content = document.getElementById("whitepaperContent");
+        if (content.style.display === "none" || content.style.display === "") {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
+    }
+</script>
 
 <!-- Fan Art Section -->
 <div class="fan-art-section">
