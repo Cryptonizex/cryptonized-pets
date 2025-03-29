@@ -330,63 +330,67 @@
 <style>
     .roadmap {
         background: linear-gradient(135deg, #FF4500, #FFD700, #32CD32, #87CEEB, #FF69B4);
-        padding: 25px;
-        border-radius: 20px;
-        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
         text-align: center;
         animation: pulseGlow 3s infinite alternate;
-        max-width: 700px; /* Keeps it compact */
-        margin: 30px auto; /* Centers it */
+        max-width: 600px; /* Smaller width to match white paper */
+        margin: 20px auto; /* Centers it properly */
     }
 
     @keyframes pulseGlow {
         0% {
-            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
         }
         100% {
-            box-shadow: 0px 0px 25px rgba(255, 255, 255, 1);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
         }
     }
 
     .btn {
         background: linear-gradient(45deg, #000, #FF69B4);
         color: #FFD700;
-        font-size: 22px;
+        font-size: 20px;
         font-weight: bold;
-        padding: 15px 25px;
-        border-radius: 30px;
-        border: 3px solid #FFD700;
+        padding: 12px 20px;
+        border-radius: 25px;
+        border: 2px solid #FFD700;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
         text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+        width: 90%; /* Makes button width match */
+        max-width: 500px; /* Prevents it from getting too big */
+        display: block;
+        margin: 0 auto;
     }
 
     .btn:hover {
         background-color: #FFD700;
         color: #000;
-        transform: scale(1.1);
-        box-shadow: 0px 0px 15px #FF69B4;
+        transform: scale(1.05);
+        box-shadow: 0px 0px 12px #FF69B4;
     }
 
     .roadmap-details {
         display: none;
-        margin-top: 20px;
+        margin-top: 15px;
         color: white;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: bold;
         text-shadow: 2px 2px 4px black;
         background: rgba(0, 0, 0, 0.85);
-        padding: 20px;
-        border-radius: 15px;
-        animation: fadeIn 0.8s ease-in-out;
+        padding: 15px;
+        border-radius: 12px;
+        animation: fadeIn 0.7s ease-in-out;
     }
 
     .roadmap-details p {
         background: rgba(255, 255, 255, 0.1);
-        padding: 12px;
-        border-radius: 10px;
-        margin: 8px 0;
-        animation: bounceIn 0.6s ease-in-out;
+        padding: 8px;
+        border-radius: 8px;
+        margin: 6px 0;
+        animation: bounceIn 0.5s ease-in-out;
     }
 
     @keyframes fadeIn {
@@ -400,11 +404,11 @@
 
     @keyframes bounceIn {
         0% {
-            transform: scale(0.8);
+            transform: scale(0.9);
             opacity: 0;
         }
         80% {
-            transform: scale(1.1);
+            transform: scale(1.05);
             opacity: 1;
         }
         100% {
@@ -428,6 +432,18 @@
             <p>🚀 Phase 10: Cryptonized Universe Expansion</p>
     </div>
 </div>
+
+<script>
+    function toggleRoadmap() {
+        var roadmapContent = document.getElementById("roadmapDetails");
+        if (roadmapContent.style.display === "none" || roadmapContent.style.display === "") {
+            roadmapContent.style.display = "block";
+        } else {
+            roadmapContent.style.display = "none";
+        }
+    }
+</script>
+
 
 <script>
     function toggleRoadmap() {
