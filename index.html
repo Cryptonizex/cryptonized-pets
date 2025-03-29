@@ -184,23 +184,55 @@
             resize: both;
             overflow: auto;
         }
+      
         .pet-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .pet-container img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s;
-        }
-        .pet-container img:hover {
-            transform: scale(1.1);
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.pet-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.3s ease-in-out;
+    animation: float 3s infinite ease-in-out, flashGlow 2s infinite alternate;
+}
+
+/* Floating up and down */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Flashing red and green light */
+@keyframes flashGlow {
+    0% {
+        box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.9);
+    }
+    50% {
+        box-shadow: 0px 0px 25px rgba(255, 0, 0, 0.9);
+    }
+    100% {
+        box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.9);
+    }
+}
+
+/* Hover Effect */
+.pet-container img:hover {
+    transform: scale(1.1);
+}
         .bonding-curve {
             position: relative;
             margin: 20px auto;
