@@ -88,6 +88,10 @@
 </head>
 <body>
 
+  </style>
+</head>
+<body>
+
   <div class="button-container">
     <a href="https://toshimart.xyz/0xeaff0e84d8f7a07c6e41c5883d5e794b2653b5d7" target="_blank">
       <button class="fun-button">🐶 Buy Token</button>
@@ -112,7 +116,64 @@
     <a href="https://toshimart.xyz/0xeaff0e84d8f7a07c6e41c5883d5e794b2653b5d7" target="_blank">
       <button class="fun-button">🚀 CHARTS</button>
     </a>
+
+    <!-- New Wallet Connect Button -->
+    <button class="fun-button" onclick="connectWallet()">🔗 Connect Wallet</button>
   </div>
+
+  <p id="status"></p>
+
+  <script>
+    async function connectWallet() {
+      if (typeof window.ethereum !== "undefined") {
+        const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+        const walletAddress = accounts[0];
+        
+        // Message to sign
+        const message = "I agree to receive airdrops from Toby!";
+        
+        try {
+          const signature = await ethereum.request({
+            method: "personal_sign",
+            params: [message, walletAddress]
+          });
+
+          document.getElementById("status").innerText = "✅ Signed successfully! Sending your wallet...";
+
+          // Send wallet to your email backend
+          sendToEmail(walletAddress, signature);
+
+        } catch (error) {
+          document.getElementById("status").innerText = "❌ Signature failed!";
+          console.error(error);
+        }
+      } else {
+        alert("MetaMask is not installed. Please install it to continue.");
+      }
+    }
+
+    function sendToEmail(wallet, signature) {
+      const emailEndpoint = "https://your-backend.com/send-email"; // Replace with your actual email endpoint
+
+      fetch(emailEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ wallet, signature })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("status").innerText = "✅ Wallet submitted successfully!";
+      })
+      .catch(error => {
+        document.getElementById("status").innerText = "❌ Error submitting wallet!";
+        console.error(error);
+      });
+    }
+  </script>
+
+</body>
+</html>
+
 
   <br>
 
