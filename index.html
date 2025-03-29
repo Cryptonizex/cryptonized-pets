@@ -7,8 +7,6 @@
       text-align: center;
       background-color: #ffeb99;
       padding: 20px;
-      overflow: hidden; /* Ensures animation stays in bounds */
-      position: relative;
     }
 
     .button-container {
@@ -86,35 +84,6 @@
       max-height: 600px;
     }
 
-    /* Paw Animation Styles */
-    .paw {
-        position: absolute;
-        top: -50px;
-        width: 50px;
-        height: 50px;
-        background-size: cover;
-        opacity: 0.8;
-        animation: fall linear infinite, wiggle 2s ease-in-out infinite;
-    }
-
-    @keyframes fall {
-        0% {
-            transform: translateY(-50px);
-        }
-        100% {
-            transform: translateY(100vh);
-        }
-    }
-
-    @keyframes wiggle {
-        0%, 100% {
-            transform: rotate(0deg);
-        }
-        50% {
-            transform: rotate(10deg);
-        }
-    }
-
   </style>
 </head>
 <body>
@@ -164,48 +133,10 @@
       var storyBox = document.getElementById("storyBox");
       storyBox.classList.toggle("show");
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-        function createPaw() {
-            const paw = document.createElement("div");
-            paw.classList.add("paw");
-
-            // Random paw colors
-            const colors = ["#FF5733", "#FFD700", "#32CD32", "#87CEEB", "#FF69B4"];
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-
-            // Random position and size
-            const randomLeft = Math.random() * window.innerWidth + "px";
-            const randomSize = Math.random() * 30 + 30 + "px"; // Between 30px - 60px
-
-            // Apply styles
-            paw.style.left = randomLeft;
-            paw.style.width = randomSize;
-            paw.style.height = randomSize;
-            paw.style.background = randomColor;
-            paw.style.borderRadius = "50%";
-            paw.style.opacity = "0.8";
-
-            // Random fall duration
-            const fallDuration = Math.random() * 3 + 3 + "s"; // Between 3s - 6s
-            paw.style.animationDuration = fallDuration;
-
-            document.body.appendChild(paw);
-
-            // Remove after animation completes
-            setTimeout(() => {
-                paw.remove();
-            }, parseFloat(fallDuration) * 1000);
-        }
-
-        // Generate new paws every 700ms (Adjust if it lags)
-        setInterval(createPaw, 700);
-    });
   </script>
 
 </body>
 </html>
-
 
 <head>
  <link rel="stylesheet" href="style.css">
